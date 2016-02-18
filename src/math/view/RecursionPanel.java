@@ -3,7 +3,7 @@ package math.view;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import math.model.RecursionTimer;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -20,6 +20,7 @@ public class RecursionPanel extends JPanel
 	private JTextField inputField;
 	private JTextArea resultsArea;
 	private SpringLayout baseLayout;
+	private RecursionTimer Timer;
 	
 	public RecursionPanel(RecursionController baseController)
 	{
@@ -27,11 +28,10 @@ public class RecursionPanel extends JPanel
 		fibonacciButton = new JButton("Calculate the Fibonci number");
 		factorialButton = new JButton("n!");
 		baseLayout = new SpringLayout();
-
 		inputField = new JTextField(5);
-
 		resultsArea = new JTextArea(10,15);
-
+		Timer = new RecursionTimer();
+		
 		
 		setupPanel();
 		setupLayout();
@@ -73,7 +73,10 @@ public class RecursionPanel extends JPanel
 				String input = inputField.getText();
 				if(checkInput(input))
 				{
-					resultsArea.setText(baseController.doFibonacci(input));
+					Timer.startTime();
+					resultsArea.append(baseController.doFibonacci(input) + "\n");
+					Timer.stopTimer();
+					resultsArea.append(Timer.toString() + "\n");
 				}
 			}
 		});
@@ -85,7 +88,10 @@ public class RecursionPanel extends JPanel
 				String input = inputField.getText();
 				if(checkInput(input))
 				{
-					resultsArea.append(baseController.doFactorial(input));
+					Timer.startTime();
+					resultsArea.append(baseController.doFactorial(input) + "\n");
+					Timer.stopTimer();
+					resultsArea.append(Timer.toString() + "\n");
 				}
 			}
 		});

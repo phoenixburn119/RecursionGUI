@@ -24,13 +24,13 @@ public class RecursionController
 	
 	public String doFibonacci(String input)
 	{
-		calculatedValue = "The Fibonacci sequence at " + input + " is: " + Integer.toString(mathTool.fibonacciNumber(Integer.parseInt(input)));
+		calculatedValue = "The Fibonacci sequence at " + input + " is: " + Integer.toString(mathTool.getFibNumber(Integer.parseInt(input)));
 		return calculatedValue;
 	}
 	
 	public String doFactorial(String input)
 	{
-		calculatedValue = "! Factorial is: " + Integer.toString(mathTool.factorialNumber(Integer.parseInt(input)));
+		calculatedValue = "! Factorial is: " + Integer.toString(mathTool.getFactorialNumber(Integer.parseInt(input)));
 		return calculatedValue;
 	}
 }

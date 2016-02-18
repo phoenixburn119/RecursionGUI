@@ -2,7 +2,7 @@ package math.model;
 
 public class RecursionTool
 {
-	public int fibonacciNumber(Integer position)
+	public int getFibNumber(Integer position)
 	{
 		//Bounds Check
 		if(position < 0)
@@ -17,11 +17,11 @@ public class RecursionTool
 		}
 		else 
 		{
-			return fibonacciNumber(position - 1) + fibonacciNumber(position -2);
+			return getFibNumber(position - 1) + getFibNumber(position -2);
 		}
 	}
 
-	public int factorialNumber(Integer position)
+	public int getFactorialNumber(Integer position)
 	{
 		//Bounds Check
 		if(position < 0)
@@ -36,7 +36,7 @@ public class RecursionTool
 		}
 		else 
 		{
-			return position * factorialNumber(position - 1);
+			return position * getFactorialNumber(position - 1);
 		}
 	}
 }
